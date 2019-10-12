@@ -1,0 +1,10 @@
+{
+  "name": "date-formatter-intl-js",
+  "version": "1.0.0",
+  "description": "A UI to quickly assess and export the date-time formats of your choice.",
+  "main": "index.js",
+  "repository": "https://github.com/maneetgoyal/date-formatter-intl-js.git",
+  "author": "Maneet Goyal",
+  "license": "MIT",
+  "private": false
+}
