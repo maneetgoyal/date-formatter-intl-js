@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Slider from "@material-ui/core/Slider";
 
-const weekDayLabels = [
+const weekdayLabels = [
   { value: 0, label: "Hide" },
   { value: 1, label: "Narrow" },
   { value: 2, label: "Short" },
@@ -37,11 +37,13 @@ const eraLabels = [
 ];
 
 export default function DateComponent() {
-  const [weekday, setWeekday] = useState(0);
-  const [day, setDay] = useState(0);
-  const [month, setMonth] = useState(0);
-  const [year, setYear] = useState(0);
-  const [era, setEra] = useState(0);
+  const [dateState, setDateState] = useState({
+    day: undefined,
+    month: undefined,
+    year: undefined,
+    weekday: undefined,
+    era: undefined
+  });
 
   return (
     <div className="date-component border m-1">
@@ -59,8 +61,15 @@ export default function DateComponent() {
             step={null}
             marks={dayLabels}
             defaultValue={0}
-            onChange={value => {
-              setDay(value);
+            onChange={(event, value) => {
+              let day = undefined;
+              if (value !== 0) {
+                const selectedLabel = dayLabels.find(label => {
+                  return label.value === value;
+                });
+                day = selectedLabel.label.toLowerCase();
+              }
+              setDateState({ ...dateState, day });
             }}
           ></Slider>
         </div>
@@ -72,8 +81,15 @@ export default function DateComponent() {
             step={null}
             marks={monthLabels}
             defaultValue={0}
-            onChange={value => {
-              setMonth(value);
+            onChange={(event, value) => {
+              let month = undefined;
+              if (value !== 0) {
+                const selectedLabel = monthLabels.find(label => {
+                  return label.value === value;
+                });
+                month = selectedLabel.label.toLowerCase();
+              }
+              setDateState({ ...dateState, month });
             }}
           ></Slider>
         </div>
@@ -85,8 +101,15 @@ export default function DateComponent() {
             step={null}
             marks={yearLabels}
             defaultValue={0}
-            onChange={value => {
-              setYear(value);
+            onChange={(event, value) => {
+              let year = undefined;
+              if (value !== 0) {
+                const selectedLabel = yearLabels.find(label => {
+                  return label.value === value;
+                });
+                year = selectedLabel.label.toLowerCase();
+              }
+              setDateState({ ...dateState, year });
             }}
           ></Slider>
         </div>
@@ -98,10 +121,17 @@ export default function DateComponent() {
             min={0}
             max={3}
             step={null}
-            marks={weekDayLabels}
+            marks={weekdayLabels}
             defaultValue={0}
-            onChange={value => {
-              setWeekday(value);
+            onChange={(event, value) => {
+              let weekday = undefined;
+              if (value !== 0) {
+                const selectedLabel = weekdayLabels.find(label => {
+                  return label.value === value;
+                });
+                weekday = selectedLabel.label.toLowerCase();
+              }
+              setDateState({ ...dateState, weekday });
             }}
           ></Slider>
         </div>
@@ -113,8 +143,15 @@ export default function DateComponent() {
             step={null}
             marks={eraLabels}
             defaultValue={0}
-            onChange={value => {
-              setEra(value);
+            onChange={(event, value) => {
+              let era = undefined;
+              if (value !== 0) {
+                const selectedLabel = eraLabels.find(label => {
+                  return label.value === value;
+                });
+                era = selectedLabel.label.toLowerCase();
+              }
+              setDateState({ ...dateState, era });
             }}
           ></Slider>
         </div>

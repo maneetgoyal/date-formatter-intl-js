@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "@material-ui/core/Slider";
 
 const hourLabels = [
@@ -26,6 +26,13 @@ const timeZoneNameLabels = [
 ];
 
 export default function TimeComponent() {
+  const [timeState, setTimeState] = useState({
+    hour: undefined,
+    minute: undefined,
+    second: undefined,
+    timeZoneName: undefined
+  });
+
   return (
     <div className="time-component border m-1">
       <div className="d-flex">
@@ -43,6 +50,16 @@ export default function TimeComponent() {
             step={null}
             marks={hourLabels}
             defaultValue={0}
+            onChange={(event, value) => {
+              let hour = undefined;
+              if (value !== 0) {
+                const selectedLabel = hourLabels.find(label => {
+                  return label.value === value;
+                });
+                hour = selectedLabel.label.toLowerCase();
+              }
+              setTimeState({ ...timeState, hour });
+            }}
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
@@ -53,6 +70,16 @@ export default function TimeComponent() {
             step={null}
             marks={minuteLabels}
             defaultValue={0}
+            onChange={(event, value) => {
+              let minute = undefined;
+              if (value !== 0) {
+                const selectedLabel = minuteLabels.find(label => {
+                  return label.value === value;
+                });
+                minute = selectedLabel.label.toLowerCase();
+              }
+              setTimeState({ ...timeState, minute });
+            }}
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
@@ -63,6 +90,16 @@ export default function TimeComponent() {
             step={null}
             marks={secondLabels}
             defaultValue={0}
+            onChange={(event, value) => {
+              let second = undefined;
+              if (value !== 0) {
+                const selectedLabel = secondLabels.find(label => {
+                  return label.value === value;
+                });
+                second = selectedLabel.label.toLowerCase();
+              }
+              setTimeState({ ...timeState, second });
+            }}
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
@@ -73,6 +110,16 @@ export default function TimeComponent() {
             step={null}
             marks={timeZoneNameLabels}
             defaultValue={0}
+            onChange={(event, value) => {
+              let timeZoneName = undefined;
+              if (value !== 0) {
+                const selectedLabel = timeZoneNameLabels.find(label => {
+                  return label.value === value;
+                });
+                timeZoneName = selectedLabel.label.toLowerCase();
+              }
+              setTimeState({ ...timeState, timeZoneName });
+            }}
           />
         </div>
       </div>

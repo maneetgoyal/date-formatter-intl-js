@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Select from "react-select";
 
 const localeOptions = [
@@ -121,7 +121,7 @@ function appendStringWithHypen(input1, input2) {
   return output;
 }
 
-function convertLocaleStatetoLocalString(localeState) {
+function convertLocalePropertiestoLocalString(localeState) {
   let localeString = undefined;
   if (localeState.language !== undefined) {
     localeString = localeState.language;
@@ -153,12 +153,11 @@ function convertLocaleStatetoLocalString(localeState) {
 
 export default function LocaleComponent() {
   // Declaring states
-  const [language, setLanguage] = useState(undefined);
-  const [numberingSystem, setNumberingSystem] = useState(undefined);
-  const [calendarType, setCalendarType] = useState(undefined);
-  const [hourCycle, setHourCycle] = useState(undefined);
-
-  console.log(language, numberingSystem, calendarType, hourCycle);
+  const [localeState, setLocaleState] = useState(undefined);
+  const refToLanguage = useRef();
+  const refToNumberingSystem = useRef();
+  const refToCalendarType = useRef();
+  const refToHourCycle = useRef();
 
   return (
     <div className="locale-component border m-1">
@@ -174,8 +173,15 @@ export default function LocaleComponent() {
             defaultValue={localeOptions[0]}
             options={localeOptions}
             onChange={option => {
-              setLanguage(option.value);
+              const localeString = convertLocalePropertiestoLocalString({
+                language: option.value,
+                numberingSystem: refToNumberingSystem.current.state.value.value,
+                calendarType: refToCalendarType.current.state.value.value,
+                hourCycle: refToHourCycle.current.state.value.value
+              });
+              setLocaleState(localeString);
             }}
+            ref={refToLanguage}
           />
         </div>
       </div>
@@ -186,8 +192,15 @@ export default function LocaleComponent() {
             defaultValue={numberingSystemOptions[0]}
             options={numberingSystemOptions}
             onChange={option => {
-              setNumberingSystem(option.value);
+              const localeString = convertLocalePropertiestoLocalString({
+                language: refToLanguage.current.state.value.value,
+                numberingSystem: option.value,
+                calendarType: refToCalendarType.current.state.value.value,
+                hourCycle: refToHourCycle.current.state.value.value
+              });
+              setLocaleState(localeString);
             }}
+            ref={refToNumberingSystem}
           />
         </div>
         <div className="flex-fill p-1">
@@ -196,8 +209,15 @@ export default function LocaleComponent() {
             defaultValue={calendarTypeOptions[0]}
             options={calendarTypeOptions}
             onChange={option => {
-              setCalendarType(option.value);
+              const localeString = convertLocalePropertiestoLocalString({
+                language: refToLanguage.current.state.value.value,
+                numberingSystem: refToNumberingSystem.current.state.value.value,
+                calendarType: option.value,
+                hourCycle: refToHourCycle.current.state.value.value
+              });
+              setLocaleState(localeString);
             }}
+            ref={refToCalendarType}
           />
         </div>
         <div className="flex-fill p-1">
@@ -206,8 +226,15 @@ export default function LocaleComponent() {
             defaultValue={hourCycleOptions[0]}
             options={hourCycleOptions}
             onChange={option => {
-              setHourCycle(option.value);
+              const localeString = convertLocalePropertiestoLocalString({
+                language: refToLanguage.current.state.value.value,
+                numberingSystem: refToNumberingSystem.current.state.value.value,
+                calendarType: refToCalendarType.current.state.value.value,
+                hourCycle: option.value
+              });
+              setLocaleState(localeString);
             }}
+            ref={refToHourCycle}
           />
         </div>
       </div>
