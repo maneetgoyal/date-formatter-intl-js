@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import FormatPickerComponent from "./components/format-picker-component";
 import FormatPreviewComponent from "./components/format-preview-component";
+
+import "bootstrap/dist/css/bootstrap.css";
+import "react-rangeslider/lib/index.css";
 import "./index.css";
 
 ReactDOM.render(

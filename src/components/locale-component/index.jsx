@@ -1,6 +1,5 @@
 import React from "react";
 import Select from "react-select";
-import "bootstrap/dist/css/bootstrap.css";
 
 const localeOptions = [
   { value: undefined, label: "Default" },

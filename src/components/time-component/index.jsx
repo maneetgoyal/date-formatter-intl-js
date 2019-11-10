@@ -1,7 +1,5 @@
 import React from "react";
 import Slider from "react-rangeslider";
-import "bootstrap/dist/css/bootstrap.css";
-import "react-rangeslider/lib/index.css";
 
 const hourLabels = {
   0: "Hide",

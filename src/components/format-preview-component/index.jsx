@@ -1,6 +1,5 @@
 import React from "react";
 import ReactJson from "react-json-view";
-import "bootstrap/dist/css/bootstrap.css";
 
 export default function FormatPreviewComponent() {
   return (
