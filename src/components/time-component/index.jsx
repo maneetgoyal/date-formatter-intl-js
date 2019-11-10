@@ -1,29 +1,29 @@
 import React from "react";
-import Slider from "react-rangeslider";
+import Slider from "@material-ui/core/Slider";
 
-const hourLabels = {
-  0: "Hide",
-  1: "Numeric",
-  2: "Two-Digit"
-};
+const hourLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Two-Digit" },
+  { value: 2, label: "Numeric" }
+];
 
-const minuteLabels = {
-  0: "Hide",
-  1: "Numeric",
-  2: "Two-Digit"
-};
+const minuteLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Two-Digit" },
+  { value: 2, label: "Numeric" }
+];
 
-const secondLabels = {
-  0: "Hide",
-  1: "Numeric",
-  2: "Two-Digit"
-};
+const secondLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Two-Digit" },
+  { value: 2, label: "Numeric" }
+];
 
-const timeZoneNameLabels = {
-  0: "Hide",
-  1: "Long",
-  2: "Short"
-};
+const timeZoneNameLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Short" },
+  { value: 2, label: "Long" }
+];
 
 export default function TimeComponent() {
   return (
@@ -34,21 +34,46 @@ export default function TimeComponent() {
         </div>
       </div>
       <div className="d-flex flex-row flex-wrap">
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select hour format</label>
-          <Slider min={0} max={2} step={1} labels={hourLabels}></Slider>
+
+          <Slider
+            min={0}
+            max={2}
+            step={null}
+            marks={hourLabels}
+            defaultValue={0}
+          />
         </div>
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select minute format</label>
-          <Slider min={0} max={2} step={1} labels={minuteLabels}></Slider>
+          <Slider
+            min={0}
+            max={2}
+            step={null}
+            marks={minuteLabels}
+            defaultValue={0}
+          />
         </div>
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select second format</label>
-          <Slider min={0} max={2} step={1} labels={secondLabels}></Slider>
+          <Slider
+            min={0}
+            max={2}
+            step={null}
+            marks={secondLabels}
+            defaultValue={0}
+          />
         </div>
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select time zone name format</label>
-          <Slider min={0} max={2} step={1} labels={timeZoneNameLabels}></Slider>
+          <Slider
+            min={0}
+            max={2}
+            step={null}
+            marks={timeZoneNameLabels}
+            defaultValue={0}
+          />
         </div>
       </div>
     </div>

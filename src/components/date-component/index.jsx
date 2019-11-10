@@ -1,42 +1,48 @@
-import React from "react";
-import Slider from "react-rangeslider";
+import React, { useState } from "react";
+import Slider from "@material-ui/core/Slider";
 
-const weekDayLabels = {
-  0: "Hide",
-  1: "Long",
-  2: "Short",
-  3: "Narrow"
-};
+const weekDayLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Narrow" },
+  { value: 2, label: "Short" },
+  { value: 3, label: "Long" }
+];
 
-const dayLabels = {
-  0: "Hide",
-  1: "Numeric",
-  2: "Two-Digit"
-};
+const dayLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Two-Digit" },
+  { value: 2, label: "Numeric" }
+];
 
-const monthLabels = {
-  0: "Hide",
-  1: "Numeric",
-  2: "Two-Digit",
-  3: "Long",
-  4: "Short",
-  5: "Narrow"
-};
+const monthLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Two-Digit" },
+  { value: 2, label: "Numeric" },
+  { value: 3, label: "Narrow" },
+  { value: 4, label: "Short" },
+  { value: 5, label: "Long" }
+];
 
-const yearLabels = {
-  0: "Hide",
-  1: "Numeric",
-  2: "Two-Digit"
-};
+const yearLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Two-Digit" },
+  { value: 2, label: "Numeric" }
+];
 
-const eraLabels = {
-  0: "Hide",
-  1: "Long",
-  2: "Short",
-  3: "Narrow"
-};
+const eraLabels = [
+  { value: 0, label: "Hide" },
+  { value: 1, label: "Narrow" },
+  { value: 2, label: "Short" },
+  { value: 3, label: "Long" }
+];
 
 export default function DateComponent() {
+  const [weekday, setWeekday] = useState(0);
+  const [day, setDay] = useState(0);
+  const [month, setMonth] = useState(0);
+  const [year, setYear] = useState(0);
+  const [era, setEra] = useState(0);
+
   return (
     <div className="date-component border m-1">
       <div className="d-flex">
@@ -45,27 +51,72 @@ export default function DateComponent() {
         </div>
       </div>
       <div className="d-flex flex-row flex-wrap">
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select day format</label>
-          <Slider min={0} max={2} step={1} labels={dayLabels}></Slider>
+          <Slider
+            min={0}
+            max={2}
+            step={null}
+            marks={dayLabels}
+            defaultValue={0}
+            onChange={value => {
+              setDay(value);
+            }}
+          ></Slider>
         </div>
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select month format</label>
-          <Slider min={0} max={5} step={1} labels={monthLabels}></Slider>
+          <Slider
+            min={0}
+            max={5}
+            step={null}
+            marks={monthLabels}
+            defaultValue={0}
+            onChange={value => {
+              setMonth(value);
+            }}
+          ></Slider>
         </div>
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select year format</label>
-          <Slider min={0} max={2} step={1} labels={yearLabels}></Slider>
+          <Slider
+            min={0}
+            max={2}
+            step={null}
+            marks={yearLabels}
+            defaultValue={0}
+            onChange={value => {
+              setYear(value);
+            }}
+          ></Slider>
         </div>
       </div>
       <div className="d-flex flex-row flex-wrap">
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select week day format</label>
-          <Slider min={0} max={3} step={1} labels={weekDayLabels}></Slider>
+          <Slider
+            min={0}
+            max={3}
+            step={null}
+            marks={weekDayLabels}
+            defaultValue={0}
+            onChange={value => {
+              setWeekday(value);
+            }}
+          ></Slider>
         </div>
-        <div className="flex-fill p-1 pb-5 pr-3">
+        <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select era format</label>
-          <Slider min={0} max={3} step={1} labels={eraLabels}></Slider>
+          <Slider
+            min={0}
+            max={3}
+            step={null}
+            marks={eraLabels}
+            defaultValue={0}
+            onChange={value => {
+              setEra(value);
+            }}
+          ></Slider>
         </div>
       </div>
     </div>

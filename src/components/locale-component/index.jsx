@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 
 const localeOptions = [
@@ -109,7 +109,57 @@ const hourCycleOptions = [
   { value: "h24", label: "24-Hours Cycle" }
 ];
 
+function appendStringWithHypen(input1, input2) {
+  var output = undefined;
+  if (input1 === undefined || input1 === "") {
+    output = input2;
+  } else if (input2 === undefined || input2 === "") {
+    output = input1;
+  } else {
+    output = `${input1}-${input2}`;
+  }
+  return output;
+}
+
+function convertLocaleStatetoLocalString(localeState) {
+  let localeString = undefined;
+  if (localeState.language !== undefined) {
+    localeString = localeState.language;
+    let otherLocaleSettings = undefined;
+    if (localeState.numberingSystem !== undefined) {
+      otherLocaleSettings = appendStringWithHypen(
+        otherLocaleSettings,
+        `nu-${localeState.numberingSystem}`
+      );
+    }
+    if (localeState.calendarType !== undefined) {
+      otherLocaleSettings = appendStringWithHypen(
+        otherLocaleSettings,
+        `ca-${localeState.calendarType}`
+      );
+    }
+    if (localeState.hourCycle !== undefined) {
+      otherLocaleSettings = appendStringWithHypen(
+        otherLocaleSettings,
+        `hc-${localeState.hourCycle}`
+      );
+    }
+    if (otherLocaleSettings !== undefined) {
+      localeString = `${localeString}-u-${otherLocaleSettings}`;
+    }
+  }
+  return localeString;
+}
+
 export default function LocaleComponent() {
+  // Declaring states
+  const [language, setLanguage] = useState(undefined);
+  const [numberingSystem, setNumberingSystem] = useState(undefined);
+  const [calendarType, setCalendarType] = useState(undefined);
+  const [hourCycle, setHourCycle] = useState(undefined);
+
+  console.log(language, numberingSystem, calendarType, hourCycle);
+
   return (
     <div className="locale-component border m-1">
       <div className="d-flex">
@@ -120,7 +170,13 @@ export default function LocaleComponent() {
       <div className="d-flex">
         <div className="flex-fill p-1">
           <label className="d-block">Select Locale</label>
-          <Select defaultValue={localeOptions[0]} options={localeOptions} />
+          <Select
+            defaultValue={localeOptions[0]}
+            options={localeOptions}
+            onChange={option => {
+              setLanguage(option.value);
+            }}
+          />
         </div>
       </div>
       <div className="d-flex flex-row flex-wrap">
@@ -129,6 +185,9 @@ export default function LocaleComponent() {
           <Select
             defaultValue={numberingSystemOptions[0]}
             options={numberingSystemOptions}
+            onChange={option => {
+              setNumberingSystem(option.value);
+            }}
           />
         </div>
         <div className="flex-fill p-1">
@@ -136,6 +195,9 @@ export default function LocaleComponent() {
           <Select
             defaultValue={calendarTypeOptions[0]}
             options={calendarTypeOptions}
+            onChange={option => {
+              setCalendarType(option.value);
+            }}
           />
         </div>
         <div className="flex-fill p-1">
@@ -143,6 +205,9 @@ export default function LocaleComponent() {
           <Select
             defaultValue={hourCycleOptions[0]}
             options={hourCycleOptions}
+            onChange={option => {
+              setHourCycle(option.value);
+            }}
           />
         </div>
       </div>
