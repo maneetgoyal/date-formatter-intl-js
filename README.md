@@ -1,6 +1,6 @@
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - The app is hosted at https://maneetgoyal.github.io/date-formatter-intl-js/
-- It utlizes JavaScript's [IntlDateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat) module to format date-time in locale sensitive fashion
+- It utilizes JavaScript's [IntlDateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat) module to format date-time stamps in a locale sensitive fashion
 
 ## Available Scripts
 
