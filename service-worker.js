@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/date-formatter-intl-js/precache-manifest.eb710ae9e06f9fc7d35cf4747ea3ec3b.js"
+  "/date-formatter-intl-js/precache-manifest.48d53062ded176ad06917ba886ff44f6.js"
 );
 
 self.addEventListener('message', (event) => {
