@@ -50,7 +50,7 @@ export default function FormatPreviewComponent({ intlJSON }) {
       <div className="d-block p-1">
         <h6>Preview Window</h6>
       </div>
-      <div className="m-2">
+      <div className="p-1">
         <label className="w-100">
           Formatted DateTime Stamp
           <input
