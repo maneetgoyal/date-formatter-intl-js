@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Select from "react-select";
 
 const localeOptions = [
@@ -109,55 +109,7 @@ const hourCycleOptions = [
   { value: "h24", label: "24-Hours Cycle" }
 ];
 
-function appendStringWithHypen(input1, input2) {
-  var output = undefined;
-  if (input1 === undefined || input1 === "") {
-    output = input2;
-  } else if (input2 === undefined || input2 === "") {
-    output = input1;
-  } else {
-    output = `${input1}-${input2}`;
-  }
-  return output;
-}
-
-function convertLocalePropertiestoLocalString(localeState) {
-  let localeString = undefined;
-  if (localeState.language !== undefined) {
-    localeString = localeState.language;
-    let otherLocaleSettings = undefined;
-    if (localeState.numberingSystem !== undefined) {
-      otherLocaleSettings = appendStringWithHypen(
-        otherLocaleSettings,
-        `nu-${localeState.numberingSystem}`
-      );
-    }
-    if (localeState.calendarType !== undefined) {
-      otherLocaleSettings = appendStringWithHypen(
-        otherLocaleSettings,
-        `ca-${localeState.calendarType}`
-      );
-    }
-    if (localeState.hourCycle !== undefined) {
-      otherLocaleSettings = appendStringWithHypen(
-        otherLocaleSettings,
-        `hc-${localeState.hourCycle}`
-      );
-    }
-    if (otherLocaleSettings !== undefined) {
-      localeString = `${localeString}-u-${otherLocaleSettings}`;
-    }
-  }
-  return localeString;
-}
-
-export default function LocaleComponent(props) {
-  // Declaring references
-  const refToLanguage = useRef();
-  const refToNumberingSystem = useRef();
-  const refToCalendarType = useRef();
-  const refToHourCycle = useRef();
-
+export default function LocaleComponent({ onChange }) {
   return (
     <div className="locale-component border m-1">
       <div className="d-flex">
@@ -172,15 +124,8 @@ export default function LocaleComponent(props) {
             defaultValue={localeOptions[0]}
             options={localeOptions}
             onChange={option => {
-              const localeString = convertLocalePropertiestoLocalString({
-                language: option.value,
-                numberingSystem: refToNumberingSystem.current.state.value.value,
-                calendarType: refToCalendarType.current.state.value.value,
-                hourCycle: refToHourCycle.current.state.value.value
-              });
-              props.onChange(localeString);
+              onChange({ language: option.value });
             }}
-            ref={refToLanguage}
           />
         </div>
       </div>
@@ -191,15 +136,8 @@ export default function LocaleComponent(props) {
             defaultValue={numberingSystemOptions[0]}
             options={numberingSystemOptions}
             onChange={option => {
-              const localeString = convertLocalePropertiestoLocalString({
-                language: refToLanguage.current.state.value.value,
-                numberingSystem: option.value,
-                calendarType: refToCalendarType.current.state.value.value,
-                hourCycle: refToHourCycle.current.state.value.value
-              });
-              props.onChange(localeString);
+              onChange({ numberingSystem: option.value });
             }}
-            ref={refToNumberingSystem}
           />
         </div>
         <div className="flex-fill p-1">
@@ -208,15 +146,8 @@ export default function LocaleComponent(props) {
             defaultValue={calendarTypeOptions[0]}
             options={calendarTypeOptions}
             onChange={option => {
-              const localeString = convertLocalePropertiestoLocalString({
-                language: refToLanguage.current.state.value.value,
-                numberingSystem: refToNumberingSystem.current.state.value.value,
-                calendarType: option.value,
-                hourCycle: refToHourCycle.current.state.value.value
-              });
-              props.onChange(localeString);
+              onChange({ calendarType: option.value });
             }}
-            ref={refToCalendarType}
           />
         </div>
         <div className="flex-fill p-1">
@@ -225,15 +156,8 @@ export default function LocaleComponent(props) {
             defaultValue={hourCycleOptions[0]}
             options={hourCycleOptions}
             onChange={option => {
-              const localeString = convertLocalePropertiestoLocalString({
-                language: refToLanguage.current.state.value.value,
-                numberingSystem: refToNumberingSystem.current.state.value.value,
-                calendarType: refToCalendarType.current.state.value.value,
-                hourCycle: option.value
-              });
-              props.onChange(localeString);
+              onChange({ hourCycle: option.value });
             }}
-            ref={refToHourCycle}
           />
         </div>
       </div>
