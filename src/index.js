@@ -25,7 +25,14 @@ ReactDOM.render(
             >
               Intl.DateTimeFormat
             </a>{" "}
-            module to format date-time strings
+            module to format date-time strings |{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/maneetgoyal/date-formatter-intl-js"
+            >
+              GitHub Source
+            </a>
           </p>
         </div>
       </div>
