@@ -2,6 +2,8 @@ import React from "react";
 import ReactJson from "react-json-view";
 
 export default function FormatPreviewComponent() {
+  const defaultINTLJSON = { locale: undefined, options: undefined };
+  const defaultDateString = new Intl.DateTimeFormat(new Date()).format();
   return (
     <div className="format-preview-component border m-1">
       <div className="m-2 mb-4">
@@ -9,17 +11,13 @@ export default function FormatPreviewComponent() {
         <input
           className="form-control"
           type="text"
-          placeholder="Formatted date-time string…"
+          value={defaultDateString}
           readOnly={true}
         ></input>
       </div>
       <div className="m-2">
         <h6>INTL JSON Preview</h6>
-        <ReactJson
-          src={{ locale: {}, options: {} }}
-          collapsed={false}
-          name={"arguments"}
-        />
+        <ReactJson src={defaultINTLJSON} collapsed={false} name={"arguments"} />
       </div>
     </div>
   );
