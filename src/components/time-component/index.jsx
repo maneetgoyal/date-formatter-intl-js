@@ -28,15 +28,14 @@ const timeZoneNameLabels = [
 export default function TimeComponent(props) {
   return (
     <div className="time-component border m-1">
-      <div className="d-flex">
+      <div className="d-xs-block d-md-flex">
         <div className="flex-fill p-1">
           <h6>Pick time format</h6>
         </div>
       </div>
-      <div className="d-flex flex-row flex-wrap">
+      <div className="d-xs-block d-md-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Hour</label>
-
           <Slider
             min={0}
             max={2}

@@ -39,12 +39,12 @@ const eraLabels = [
 export default function DateComponent(props) {
   return (
     <div className="date-component border m-1">
-      <div className="d-flex">
+      <div className="d-xs-block d-md-flex">
         <div className="flex-fill p-1">
           <h6>Pick date format</h6>
         </div>
       </div>
-      <div className="d-flex flex-row flex-wrap">
+      <div className="d-xs-block d-md-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Day</label>
           <Slider
@@ -112,7 +112,7 @@ export default function DateComponent(props) {
           />
         </div>
       </div>
-      <div className="d-flex flex-row flex-wrap">
+      <div className="d-xs-block d-md-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Week</label>
           <Slider
