@@ -35,7 +35,7 @@ export default function TimeComponent(props) {
       </div>
       <div className="d-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select hour format</label>
+          <label className="d-block">Hour</label>
 
           <Slider
             min={0}
@@ -58,7 +58,7 @@ export default function TimeComponent(props) {
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select minute format</label>
+          <label className="d-block">Minute</label>
           <Slider
             min={0}
             max={2}
@@ -80,7 +80,7 @@ export default function TimeComponent(props) {
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select second format</label>
+          <label className="d-block">Second</label>
           <Slider
             min={0}
             max={2}
@@ -102,7 +102,7 @@ export default function TimeComponent(props) {
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select time zone name format</label>
+          <label className="d-block">Time Zone Name</label>
           <Slider
             min={0}
             max={2}

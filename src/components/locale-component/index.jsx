@@ -93,7 +93,7 @@ const calendarTypeOptions = [
   { value: "ethiopic", label: "🌍 Ethiopic" },
   { value: "gregory", label: "🌐 Gregory" },
   { value: "hebrew", label: "🕍 Hebrew" },
-  { value: "indian", label: "🕉 Indian" },
+  { value: "indian", label: "🧘 Indian" },
   { value: "islamic", label: "☪ Islamic" },
   { value: "iso8601", label: "🌐 ISO-8601" },
   { value: "japanese", label: "🎎 Japanese" },
@@ -167,7 +167,7 @@ export default function LocaleComponent(props) {
       </div>
       <div className="d-flex">
         <div className="flex-fill p-1">
-          <label className="d-block">Select Locale</label>
+          <label className="d-block">Locale</label>
           <Select
             defaultValue={localeOptions[0]}
             options={localeOptions}
@@ -186,7 +186,7 @@ export default function LocaleComponent(props) {
       </div>
       <div className="d-flex flex-row flex-wrap">
         <div className="flex-fill p-1">
-          <label className="d-block">Select Numbering System</label>
+          <label className="d-block">Numbering System</label>
           <Select
             defaultValue={numberingSystemOptions[0]}
             options={numberingSystemOptions}
@@ -203,7 +203,7 @@ export default function LocaleComponent(props) {
           />
         </div>
         <div className="flex-fill p-1">
-          <label className="d-block">Select Calendar Type</label>
+          <label className="d-block">Calendar Type</label>
           <Select
             defaultValue={calendarTypeOptions[0]}
             options={calendarTypeOptions}
@@ -220,7 +220,7 @@ export default function LocaleComponent(props) {
           />
         </div>
         <div className="flex-fill p-1">
-          <label className="d-block">Select Hour Cycle</label>
+          <label className="d-block">Hour Cycle</label>
           <Select
             defaultValue={hourCycleOptions[0]}
             options={hourCycleOptions}

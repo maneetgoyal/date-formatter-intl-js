@@ -46,7 +46,7 @@ export default function DateComponent(props) {
       </div>
       <div className="d-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select day format</label>
+          <label className="d-block">Day</label>
           <Slider
             min={0}
             max={2}
@@ -68,7 +68,7 @@ export default function DateComponent(props) {
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select month format</label>
+          <label className="d-block">Month</label>
           <Slider
             min={0}
             max={5}
@@ -90,7 +90,7 @@ export default function DateComponent(props) {
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select year format</label>
+          <label className="d-block">Year</label>
           <Slider
             min={0}
             max={2}
@@ -114,7 +114,7 @@ export default function DateComponent(props) {
       </div>
       <div className="d-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select week day format</label>
+          <label className="d-block">Week</label>
           <Slider
             min={0}
             max={3}
@@ -136,7 +136,7 @@ export default function DateComponent(props) {
           />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Select era format</label>
+          <label className="d-block">Era</label>
           <Slider
             min={0}
             max={3}
