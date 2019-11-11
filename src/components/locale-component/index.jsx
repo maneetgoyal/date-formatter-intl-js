@@ -119,46 +119,54 @@ export default function LocaleComponent({ onChange }) {
       </div>
       <div className="d-flex">
         <div className="flex-fill p-1">
-          <label className="d-block">Locale</label>
-          <Select
-            defaultValue={localeOptions[0]}
-            options={localeOptions}
-            onChange={option => {
-              onChange({ language: option.value });
-            }}
-          />
+          <label className="d-block">
+            Locale
+            <Select
+              defaultValue={localeOptions[0]}
+              options={localeOptions}
+              onChange={option => {
+                onChange({ language: option.value });
+              }}
+            />
+          </label>
         </div>
       </div>
       <div className="d-flex flex-row flex-wrap">
         <div className="flex-fill p-1">
-          <label className="d-block">Numbering System</label>
-          <Select
-            defaultValue={numberingSystemOptions[0]}
-            options={numberingSystemOptions}
-            onChange={option => {
-              onChange({ numberingSystem: option.value });
-            }}
-          />
+          <label className="d-block">
+            Numbering System
+            <Select
+              defaultValue={numberingSystemOptions[0]}
+              options={numberingSystemOptions}
+              onChange={option => {
+                onChange({ numberingSystem: option.value });
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1">
-          <label className="d-block">Calendar Type</label>
-          <Select
-            defaultValue={calendarTypeOptions[0]}
-            options={calendarTypeOptions}
-            onChange={option => {
-              onChange({ calendarType: option.value });
-            }}
-          />
+          <label className="d-block">
+            Calendar Type
+            <Select
+              defaultValue={calendarTypeOptions[0]}
+              options={calendarTypeOptions}
+              onChange={option => {
+                onChange({ calendarType: option.value });
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1">
-          <label className="d-block">Hour Cycle</label>
-          <Select
-            defaultValue={hourCycleOptions[0]}
-            options={hourCycleOptions}
-            onChange={option => {
-              onChange({ hourCycle: option.value });
-            }}
-          />
+          <label className="d-block">
+            Hour Cycle
+            <Select
+              defaultValue={hourCycleOptions[0]}
+              options={hourCycleOptions}
+              onChange={option => {
+                onChange({ hourCycle: option.value });
+              }}
+            />
+          </label>
         </div>
       </div>
     </div>

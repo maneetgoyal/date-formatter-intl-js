@@ -35,92 +35,100 @@ export default function TimeComponent(props) {
       </div>
       <div className="d-xs-block d-md-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Hour</label>
-          <Slider
-            min={0}
-            max={2}
-            step={null}
-            marks={hourLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let hour = undefined;
-              if (value !== 0) {
-                const selectedLabel = hourLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Hour
+            <Slider
+              min={0}
+              max={2}
+              step={null}
+              marks={hourLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let hour = undefined;
+                if (value !== 0) {
+                  const selectedLabel = hourLabels.find(label => {
+                    return label.value === value;
+                  });
+                  hour = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  hour
                 });
-                hour = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                hour
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Minute</label>
-          <Slider
-            min={0}
-            max={2}
-            step={null}
-            marks={minuteLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let minute = undefined;
-              if (value !== 0) {
-                const selectedLabel = minuteLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Minute
+            <Slider
+              min={0}
+              max={2}
+              step={null}
+              marks={minuteLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let minute = undefined;
+                if (value !== 0) {
+                  const selectedLabel = minuteLabels.find(label => {
+                    return label.value === value;
+                  });
+                  minute = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  minute
                 });
-                minute = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                minute
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Second</label>
-          <Slider
-            min={0}
-            max={2}
-            step={null}
-            marks={secondLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let second = undefined;
-              if (value !== 0) {
-                const selectedLabel = secondLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Second
+            <Slider
+              min={0}
+              max={2}
+              step={null}
+              marks={secondLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let second = undefined;
+                if (value !== 0) {
+                  const selectedLabel = secondLabels.find(label => {
+                    return label.value === value;
+                  });
+                  second = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  second
                 });
-                second = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                second
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Time Zone Name</label>
-          <Slider
-            min={0}
-            max={2}
-            step={null}
-            marks={timeZoneNameLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let timeZoneName = undefined;
-              if (value !== 0) {
-                const selectedLabel = timeZoneNameLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Time Zone Name
+            <Slider
+              min={0}
+              max={2}
+              step={null}
+              marks={timeZoneNameLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let timeZoneName = undefined;
+                if (value !== 0) {
+                  const selectedLabel = timeZoneNameLabels.find(label => {
+                    return label.value === value;
+                  });
+                  timeZoneName = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  timeZoneName
                 });
-                timeZoneName = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                timeZoneName
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
       </div>
     </div>

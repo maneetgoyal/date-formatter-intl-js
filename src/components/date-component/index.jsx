@@ -46,116 +46,126 @@ export default function DateComponent(props) {
       </div>
       <div className="d-xs-block d-md-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Day</label>
-          <Slider
-            min={0}
-            max={2}
-            step={null}
-            marks={dayLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let day = undefined;
-              if (value !== 0) {
-                const selectedLabel = dayLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Day
+            <Slider
+              min={0}
+              max={2}
+              step={null}
+              marks={dayLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let day = undefined;
+                if (value !== 0) {
+                  const selectedLabel = dayLabels.find(label => {
+                    return label.value === value;
+                  });
+                  day = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  day
                 });
-                day = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                day
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Month</label>
-          <Slider
-            min={0}
-            max={5}
-            step={null}
-            marks={monthLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let month = undefined;
-              if (value !== 0) {
-                const selectedLabel = monthLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Month
+            <Slider
+              min={0}
+              max={5}
+              step={null}
+              marks={monthLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let month = undefined;
+                if (value !== 0) {
+                  const selectedLabel = monthLabels.find(label => {
+                    return label.value === value;
+                  });
+                  month = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  month
                 });
-                month = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                month
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Year</label>
-          <Slider
-            min={0}
-            max={2}
-            step={null}
-            marks={yearLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let year = undefined;
-              if (value !== 0) {
-                const selectedLabel = yearLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Year
+            <Slider
+              min={0}
+              max={2}
+              step={null}
+              marks={yearLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let year = undefined;
+                if (value !== 0) {
+                  const selectedLabel = yearLabels.find(label => {
+                    return label.value === value;
+                  });
+                  year = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  year
                 });
-                year = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                year
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
       </div>
       <div className="d-xs-block d-md-flex flex-row flex-wrap">
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Week</label>
-          <Slider
-            min={0}
-            max={3}
-            step={null}
-            marks={weekdayLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let weekday = undefined;
-              if (value !== 0) {
-                const selectedLabel = weekdayLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Weekday
+            <Slider
+              min={0}
+              max={3}
+              step={null}
+              marks={weekdayLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let weekday = undefined;
+                if (value !== 0) {
+                  const selectedLabel = weekdayLabels.find(label => {
+                    return label.value === value;
+                  });
+                  weekday = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  weekday
                 });
-                weekday = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                weekday
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
-          <label className="d-block">Era</label>
-          <Slider
-            min={0}
-            max={3}
-            step={null}
-            marks={eraLabels}
-            defaultValue={0}
-            onChange={(event, value) => {
-              let era = undefined;
-              if (value !== 0) {
-                const selectedLabel = eraLabels.find(label => {
-                  return label.value === value;
+          <label className="d-block">
+            Era
+            <Slider
+              min={0}
+              max={3}
+              step={null}
+              marks={eraLabels}
+              defaultValue={0}
+              onChange={(event, value) => {
+                let era = undefined;
+                if (value !== 0) {
+                  const selectedLabel = eraLabels.find(label => {
+                    return label.value === value;
+                  });
+                  era = selectedLabel.label.toLowerCase();
+                }
+                props.onChange({
+                  era
                 });
-                era = selectedLabel.label.toLowerCase();
-              }
-              props.onChange({
-                era
-              });
-            }}
-          />
+              }}
+            />
+          </label>
         </div>
       </div>
     </div>

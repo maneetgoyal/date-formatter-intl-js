@@ -48,7 +48,7 @@ export default function FormatPreviewComponent({ intlJSON }) {
   return (
     <div className="format-preview-component border m-1">
       <div className="m-2 mb-4">
-        <h6>Formatted String Preview</h6>
+        <h6>Formatted DateTime Stamp Preview</h6>
         <input
           className="form-control"
           type="text"

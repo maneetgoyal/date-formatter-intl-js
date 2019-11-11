@@ -5,7 +5,7 @@ export default function HeaderComponent() {
     <div className="jumbotron jumbotron-fluid">
       <div className="container">
         <h1 className="display-4">
-          INTL Date-Time Format Picker{" "}
+          INTL DateTime Format Picker{" "}
           <span role="img" aria-label="Yo hand sign">
             🤟🏼
           </span>
