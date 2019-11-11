@@ -47,28 +47,36 @@ export default function FormatPreviewComponent({ intlJSON }) {
   const localeString = convertLocaleInfotoLocalString(intlJSON.localeInfo);
   return (
     <div className="format-preview-component border m-1">
-      <div className="m-2 mb-4">
-        <h6>Formatted DateTime Stamp Preview</h6>
-        <input
-          className="form-control"
-          type="text"
-          value={
-            intlJSON === undefined
-              ? new Intl.DateTimeFormat().format(new Date())
-              : new Intl.DateTimeFormat(localeString, intlJSON.options).format(
-                  new Date()
-                )
-          }
-          readOnly={true}
-        ></input>
+      <div className="d-block p-1">
+        <h6>Preview Window</h6>
       </div>
       <div className="m-2">
-        <h6>INTL JSON Preview</h6>
-        <ReactJson
-          src={{ locale: localeString, options: intlJSON.options }}
-          collapsed={false}
-          name={"arguments"}
-        />
+        <label className="w-100">
+          Formatted DateTime Stamp
+          <input
+            className="form-control"
+            type="text"
+            value={
+              intlJSON === undefined
+                ? new Intl.DateTimeFormat().format(new Date())
+                : new Intl.DateTimeFormat(
+                    localeString,
+                    intlJSON.options
+                  ).format(new Date())
+            }
+            readOnly={true}
+          />
+        </label>
+      </div>
+      <div className="m-2">
+        <label>
+          INTL JSON
+          <ReactJson
+            src={{ locale: localeString, options: intlJSON.options }}
+            collapsed={false}
+            name={"arguments"}
+          />
+        </label>
       </div>
     </div>
   );
