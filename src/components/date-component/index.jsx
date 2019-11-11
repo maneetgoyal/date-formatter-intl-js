@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "@material-ui/core/Slider";
 
 const weekdayLabels = [
@@ -36,15 +36,7 @@ const eraLabels = [
   { value: 3, label: "Long" }
 ];
 
-export default function DateComponent() {
-  const [dateState, setDateState] = useState({
-    day: undefined,
-    month: undefined,
-    year: undefined,
-    weekday: undefined,
-    era: undefined
-  });
-
+export default function DateComponent(props) {
   return (
     <div className="date-component border m-1">
       <div className="d-flex">
@@ -69,9 +61,11 @@ export default function DateComponent() {
                 });
                 day = selectedLabel.label.toLowerCase();
               }
-              setDateState({ ...dateState, day });
+              props.onChange({
+                day
+              });
             }}
-          ></Slider>
+          />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select month format</label>
@@ -89,9 +83,11 @@ export default function DateComponent() {
                 });
                 month = selectedLabel.label.toLowerCase();
               }
-              setDateState({ ...dateState, month });
+              props.onChange({
+                month
+              });
             }}
-          ></Slider>
+          />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select year format</label>
@@ -109,9 +105,11 @@ export default function DateComponent() {
                 });
                 year = selectedLabel.label.toLowerCase();
               }
-              setDateState({ ...dateState, year });
+              props.onChange({
+                year
+              });
             }}
-          ></Slider>
+          />
         </div>
       </div>
       <div className="d-flex flex-row flex-wrap">
@@ -131,9 +129,11 @@ export default function DateComponent() {
                 });
                 weekday = selectedLabel.label.toLowerCase();
               }
-              setDateState({ ...dateState, weekday });
+              props.onChange({
+                weekday
+              });
             }}
-          ></Slider>
+          />
         </div>
         <div className="flex-fill p-1 pl-4 pr-5">
           <label className="d-block">Select era format</label>
@@ -151,9 +151,11 @@ export default function DateComponent() {
                 });
                 era = selectedLabel.label.toLowerCase();
               }
-              setDateState({ ...dateState, era });
+              props.onChange({
+                era
+              });
             }}
-          ></Slider>
+          />
         </div>
       </div>
     </div>

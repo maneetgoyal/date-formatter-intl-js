@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Select from "react-select";
 
 const localeOptions = [
@@ -151,9 +151,8 @@ function convertLocalePropertiestoLocalString(localeState) {
   return localeString;
 }
 
-export default function LocaleComponent() {
-  // Declaring states
-  const [localeState, setLocaleState] = useState(undefined);
+export default function LocaleComponent(props) {
+  // Declaring references
   const refToLanguage = useRef();
   const refToNumberingSystem = useRef();
   const refToCalendarType = useRef();
@@ -179,7 +178,7 @@ export default function LocaleComponent() {
                 calendarType: refToCalendarType.current.state.value.value,
                 hourCycle: refToHourCycle.current.state.value.value
               });
-              setLocaleState(localeString);
+              props.onChange(localeString);
             }}
             ref={refToLanguage}
           />
@@ -198,7 +197,7 @@ export default function LocaleComponent() {
                 calendarType: refToCalendarType.current.state.value.value,
                 hourCycle: refToHourCycle.current.state.value.value
               });
-              setLocaleState(localeString);
+              props.onChange(localeString);
             }}
             ref={refToNumberingSystem}
           />
@@ -215,7 +214,7 @@ export default function LocaleComponent() {
                 calendarType: option.value,
                 hourCycle: refToHourCycle.current.state.value.value
               });
-              setLocaleState(localeString);
+              props.onChange(localeString);
             }}
             ref={refToCalendarType}
           />
@@ -232,7 +231,7 @@ export default function LocaleComponent() {
                 calendarType: refToCalendarType.current.state.value.value,
                 hourCycle: option.value
               });
-              setLocaleState(localeString);
+              props.onChange(localeString);
             }}
             ref={refToHourCycle}
           />

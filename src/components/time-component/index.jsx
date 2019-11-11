@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "@material-ui/core/Slider";
 
 const hourLabels = [
@@ -25,14 +25,7 @@ const timeZoneNameLabels = [
   { value: 2, label: "Long" }
 ];
 
-export default function TimeComponent() {
-  const [timeState, setTimeState] = useState({
-    hour: undefined,
-    minute: undefined,
-    second: undefined,
-    timeZoneName: undefined
-  });
-
+export default function TimeComponent(props) {
   return (
     <div className="time-component border m-1">
       <div className="d-flex">
@@ -58,7 +51,9 @@ export default function TimeComponent() {
                 });
                 hour = selectedLabel.label.toLowerCase();
               }
-              setTimeState({ ...timeState, hour });
+              props.onChange({
+                hour
+              });
             }}
           />
         </div>
@@ -78,7 +73,9 @@ export default function TimeComponent() {
                 });
                 minute = selectedLabel.label.toLowerCase();
               }
-              setTimeState({ ...timeState, minute });
+              props.onChange({
+                minute
+              });
             }}
           />
         </div>
@@ -98,7 +95,9 @@ export default function TimeComponent() {
                 });
                 second = selectedLabel.label.toLowerCase();
               }
-              setTimeState({ ...timeState, second });
+              props.onChange({
+                second
+              });
             }}
           />
         </div>
@@ -118,7 +117,9 @@ export default function TimeComponent() {
                 });
                 timeZoneName = selectedLabel.label.toLowerCase();
               }
-              setTimeState({ ...timeState, timeZoneName });
+              props.onChange({
+                timeZoneName
+              });
             }}
           />
         </div>
