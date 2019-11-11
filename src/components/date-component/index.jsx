@@ -10,13 +10,13 @@ const weekdayLabels = [
 
 const dayLabels = [
   { value: 0, label: "Hide" },
-  { value: 1, label: "Two-Digit" },
+  { value: 1, label: "2-Digit" },
   { value: 2, label: "Numeric" }
 ];
 
 const monthLabels = [
   { value: 0, label: "Hide" },
-  { value: 1, label: "Two-Digit" },
+  { value: 1, label: "2-Digit" },
   { value: 2, label: "Numeric" },
   { value: 3, label: "Narrow" },
   { value: 4, label: "Short" },
@@ -25,7 +25,7 @@ const monthLabels = [
 
 const yearLabels = [
   { value: 0, label: "Hide" },
-  { value: 1, label: "Two-Digit" },
+  { value: 1, label: "2-Digit" },
   { value: 2, label: "Numeric" }
 ];
 

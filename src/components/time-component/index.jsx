@@ -3,19 +3,19 @@ import Slider from "@material-ui/core/Slider";
 
 const hourLabels = [
   { value: 0, label: "Hide" },
-  { value: 1, label: "Two-Digit" },
+  { value: 1, label: "2-Digit" },
   { value: 2, label: "Numeric" }
 ];
 
 const minuteLabels = [
   { value: 0, label: "Hide" },
-  { value: 1, label: "Two-Digit" },
+  { value: 1, label: "2-Digit" },
   { value: 2, label: "Numeric" }
 ];
 
 const secondLabels = [
   { value: 0, label: "Hide" },
-  { value: 1, label: "Two-Digit" },
+  { value: 1, label: "2-Digit" },
   { value: 2, label: "Numeric" }
 ];
 
