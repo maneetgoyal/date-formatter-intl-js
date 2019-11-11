@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FormatPickerComponent from "./components/format-picker-component";
-import FormatPreviewComponent from "./components/format-preview-component";
+import AppComponent from "./components/app-component";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
@@ -32,8 +31,7 @@ ReactDOM.render(
       </div>
     </section>
     <section className="body">
-      <FormatPreviewComponent />
-      <FormatPickerComponent />
+      <AppComponent />
     </section>
     <section className="footer">
       <div className="container-fluid p-3 text-center">
