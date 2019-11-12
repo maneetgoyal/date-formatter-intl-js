@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HeaderComponent() {
   return (
-    <div className="jumbotron jumbotron-fluid">
+    <div className="jumbotron jumbotron-fluid mb-0">
       <div className="container">
         <h1 className="display-4">
           INTL DateTime Format Picker{" "}
