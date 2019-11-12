@@ -5,7 +5,7 @@ import RightFixedButtonComponent from "../right-fixed-button-component";
 import LeftFixedButtonComponent from "../left-fixed-button-component";
 
 export default function AppComponent() {
-  const [intlJSON, setIntlJSON] = useState({
+  const initialState = {
     localeInfo: {
       language: undefined,
       numberingSystem: undefined,
@@ -23,7 +23,9 @@ export default function AppComponent() {
       second: undefined,
       timeZoneName: undefined
     }
-  });
+  };
+
+  const [intlJSON, setIntlJSON] = useState(initialState);
 
   function setLocaleInfo(localeInfo) {
     const locale = { ...intlJSON.localeInfo, ...localeInfo };
@@ -40,6 +42,10 @@ export default function AppComponent() {
     setIntlJSON({ localeInfo: intlJSON.localeInfo, options });
   }
 
+  function onReset() {
+    setIntlJSON(initialState);
+  }
+
   return (
     <React.Fragment>
       <FormatPreviewComponent intlJSON={intlJSON} />
@@ -48,7 +54,7 @@ export default function AppComponent() {
         dateOnChange={setDate}
         timeOnChange={setTime}
       />
-      <LeftFixedButtonComponent />
+      <LeftFixedButtonComponent onReset={onReset} />
       <RightFixedButtonComponent />
     </React.Fragment>
   );
