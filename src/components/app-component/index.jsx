@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import FormatPickerComponent from "../format-picker-component";
 import FormatPreviewComponent from "../format-preview-component";
-import ResetComponent from "../reset-component";
+import RightFixedButtonComponent from "../right-fixed-button-component";
+import LeftFixedButtonComponent from "../left-fixed-button-component";
 
 export default function AppComponent() {
   const [intlJSON, setIntlJSON] = useState({
@@ -47,7 +48,8 @@ export default function AppComponent() {
         dateOnChange={setDate}
         timeOnChange={setTime}
       />
-      <ResetComponent />
+      <LeftFixedButtonComponent />
+      <RightFixedButtonComponent />
     </React.Fragment>
   );
 }

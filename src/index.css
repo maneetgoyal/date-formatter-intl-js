@@ -3,8 +3,16 @@
   height: 55%;
 }
 
-.reset-component {
-  font-size: 2rem;
+.right-fixed-button-component {
   bottom: 10px;
   right: 10px;
+}
+
+.left-fixed-button-component {
+  bottom: 10px;
+  left: 10px;
+}
+
+.fixed-button-component > .btn {
+  font-size: 2rem;
 }
