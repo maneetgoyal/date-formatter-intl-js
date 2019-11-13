@@ -1,5 +1,16 @@
 import React from "react";
 import ReactJson from "react-json-view";
+import {
+  dayLabels,
+  monthLabels,
+  yearLabels,
+  weekdayLabels,
+  eraLabels,
+  hourLabels,
+  minuteLabels,
+  secondLabels,
+  timeZoneNameLabels
+} from "../../assets";
 
 function appendStringWithHypen(input1, input2) {
   var output = undefined;
@@ -13,27 +24,41 @@ function appendStringWithHypen(input1, input2) {
   return output;
 }
 
-function convertLocaleInfotoLocalString(localeInfo) {
+function transformLocaleObject({
+  language,
+  numberingSystem,
+  calendarType,
+  hourCycle
+}) {
+  return {
+    language: language.value,
+    numberingSystem: numberingSystem.value,
+    calendarType: calendarType.value,
+    hourCycle: hourCycle.value
+  };
+}
+
+function convertLocaleObjectToString(transformedLocale) {
   let localeString = undefined;
-  if (localeInfo.language !== undefined) {
-    localeString = localeInfo.language;
+  if (transformedLocale.language !== undefined) {
+    localeString = transformedLocale.language;
     let otherLocaleSettings = undefined;
-    if (localeInfo.numberingSystem !== undefined) {
+    if (transformedLocale.numberingSystem !== undefined) {
       otherLocaleSettings = appendStringWithHypen(
         otherLocaleSettings,
-        `nu-${localeInfo.numberingSystem}`
+        `nu-${transformedLocale.numberingSystem}`
       );
     }
-    if (localeInfo.calendarType !== undefined) {
+    if (transformedLocale.calendarType !== undefined) {
       otherLocaleSettings = appendStringWithHypen(
         otherLocaleSettings,
-        `ca-${localeInfo.calendarType}`
+        `ca-${transformedLocale.calendarType}`
       );
     }
-    if (localeInfo.hourCycle !== undefined) {
+    if (transformedLocale.hourCycle !== undefined) {
       otherLocaleSettings = appendStringWithHypen(
         otherLocaleSettings,
-        `hc-${localeInfo.hourCycle}`
+        `hc-${transformedLocale.hourCycle}`
       );
     }
     if (otherLocaleSettings !== undefined) {
@@ -43,8 +68,41 @@ function convertLocaleInfotoLocalString(localeInfo) {
   return localeString;
 }
 
-export default function FormatPreviewComponent({ intlJSON }) {
-  const localeString = convertLocaleInfotoLocalString(intlJSON.localeInfo);
+function transformDateObject({ day, month, year, weekday, era }) {
+  return {
+    day: day === 0 ? undefined : dayLabels[day].label.toLowerCase(),
+    month: month === 0 ? undefined : monthLabels[month].label.toLowerCase(),
+    year: year === 0 ? undefined : yearLabels[year].label.toLowerCase(),
+    weekday:
+      weekday === 0 ? undefined : weekdayLabels[weekday].label.toLowerCase(),
+    era: era === 0 ? undefined : eraLabels[era].label.toLowerCase()
+  };
+}
+
+function transformTimeObject({ hour, minute, second, timeZoneName }) {
+  return {
+    hour: hour === 0 ? undefined : hourLabels[hour].label.toLowerCase(),
+    minute: minute === 0 ? undefined : minuteLabels[minute].label.toLowerCase(),
+    second: second === 0 ? undefined : secondLabels[second].label.toLowerCase(),
+    timeZoneName:
+      timeZoneName === 0
+        ? undefined
+        : timeZoneNameLabels[timeZoneName].label.toLowerCase()
+  };
+}
+
+function formatValue({ locale, date, time }) {
+  const transformedLocale = transformLocaleObject(locale);
+  const transformedDate = transformDateObject(date);
+  const transformedTime = transformTimeObject(time);
+  return {
+    locale: convertLocaleObjectToString(transformedLocale),
+    options: { ...transformedDate, ...transformedTime }
+  };
+}
+
+export default function FormatPreviewComponent({ value }) {
+  const { locale, options } = formatValue(value);
   return (
     <div className="format-preview-component border m-1">
       <div className="d-block p-1">
@@ -56,14 +114,7 @@ export default function FormatPreviewComponent({ intlJSON }) {
           <input
             className="form-control"
             type="text"
-            value={
-              intlJSON === undefined
-                ? new Intl.DateTimeFormat().format(new Date())
-                : new Intl.DateTimeFormat(
-                    localeString,
-                    intlJSON.options
-                  ).format(new Date())
-            }
+            value={new Intl.DateTimeFormat(locale, options).format(new Date())}
             readOnly={true}
           />
         </label>
@@ -72,7 +123,7 @@ export default function FormatPreviewComponent({ intlJSON }) {
         <label>
           INTL JSON
           <ReactJson
-            src={{ locale: localeString, options: intlJSON.options }}
+            src={{ locale, options }}
             collapsed={false}
             name={"arguments"}
           />

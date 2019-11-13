@@ -1,31 +1,13 @@
 import React from "react";
 import Slider from "@material-ui/core/Slider";
+import {
+  hourLabels,
+  minuteLabels,
+  secondLabels,
+  timeZoneNameLabels
+} from "../../assets";
 
-const hourLabels = [
-  { value: 0, label: "Hide" },
-  { value: 1, label: "2-Digit" },
-  { value: 2, label: "Numeric" }
-];
-
-const minuteLabels = [
-  { value: 0, label: "Hide" },
-  { value: 1, label: "2-Digit" },
-  { value: 2, label: "Numeric" }
-];
-
-const secondLabels = [
-  { value: 0, label: "Hide" },
-  { value: 1, label: "2-Digit" },
-  { value: 2, label: "Numeric" }
-];
-
-const timeZoneNameLabels = [
-  { value: 0, label: "Hide" },
-  { value: 1, label: "Short" },
-  { value: 2, label: "Long" }
-];
-
-export default function TimeComponent(props) {
+export default function TimeComponent({ onChange, value }) {
   return (
     <div className="time-component border m-1">
       <div className="d-xs-block d-md-flex">
@@ -42,17 +24,11 @@ export default function TimeComponent(props) {
               max={2}
               step={null}
               marks={hourLabels}
-              defaultValue={0}
-              onChange={(event, value) => {
-                let hour = undefined;
-                if (value !== 0) {
-                  const selectedLabel = hourLabels.find(label => {
-                    return label.value === value;
-                  });
-                  hour = selectedLabel.label.toLowerCase();
-                }
-                props.onChange({
-                  hour
+              value={value.hour}
+              onChange={(event, selectedValue) => {
+                onChange({
+                  ...value,
+                  hour: selectedValue
                 });
               }}
             />
@@ -66,17 +42,11 @@ export default function TimeComponent(props) {
               max={2}
               step={null}
               marks={minuteLabels}
-              defaultValue={0}
-              onChange={(event, value) => {
-                let minute = undefined;
-                if (value !== 0) {
-                  const selectedLabel = minuteLabels.find(label => {
-                    return label.value === value;
-                  });
-                  minute = selectedLabel.label.toLowerCase();
-                }
-                props.onChange({
-                  minute
+              value={value.minute}
+              onChange={(event, selectedValue) => {
+                onChange({
+                  ...value,
+                  minute: selectedValue
                 });
               }}
             />
@@ -90,17 +60,11 @@ export default function TimeComponent(props) {
               max={2}
               step={null}
               marks={secondLabels}
-              defaultValue={0}
-              onChange={(event, value) => {
-                let second = undefined;
-                if (value !== 0) {
-                  const selectedLabel = secondLabels.find(label => {
-                    return label.value === value;
-                  });
-                  second = selectedLabel.label.toLowerCase();
-                }
-                props.onChange({
-                  second
+              value={value.second}
+              onChange={(event, selectedValue) => {
+                onChange({
+                  ...value,
+                  second: selectedValue
                 });
               }}
             />
@@ -114,17 +78,11 @@ export default function TimeComponent(props) {
               max={2}
               step={null}
               marks={timeZoneNameLabels}
-              defaultValue={0}
-              onChange={(event, value) => {
-                let timeZoneName = undefined;
-                if (value !== 0) {
-                  const selectedLabel = timeZoneNameLabels.find(label => {
-                    return label.value === value;
-                  });
-                  timeZoneName = selectedLabel.label.toLowerCase();
-                }
-                props.onChange({
-                  timeZoneName
+              value={value.timeZoneName}
+              onChange={(event, selectedValue) => {
+                onChange({
+                  ...value,
+                  timeZoneName: selectedValue
                 });
               }}
             />
