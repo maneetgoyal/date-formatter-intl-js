@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/date-formatter-intl-js/static/css/main.ec1d1912.chunk.css",
-    "main.js": "/date-formatter-intl-js/static/js/main.f76e3149.chunk.js",
-    "main.js.map": "/date-formatter-intl-js/static/js/main.f76e3149.chunk.js.map",
-    "runtime-main.js": "/date-formatter-intl-js/static/js/runtime-main.aed3af8c.js",
-    "runtime-main.js.map": "/date-formatter-intl-js/static/js/runtime-main.aed3af8c.js.map",
-    "static/css/2.510409cd.chunk.css": "/date-formatter-intl-js/static/css/2.510409cd.chunk.css",
-    "static/js/2.3185bdc2.chunk.js": "/date-formatter-intl-js/static/js/2.3185bdc2.chunk.js",
-    "static/js/2.3185bdc2.chunk.js.map": "/date-formatter-intl-js/static/js/2.3185bdc2.chunk.js.map",
+    "main.css": "/date-formatter-intl-js/static/css/main.31d5653a.chunk.css",
+    "main.js": "/date-formatter-intl-js/static/js/main.b5a51fe8.chunk.js",
+    "main.js.map": "/date-formatter-intl-js/static/js/main.b5a51fe8.chunk.js.map",
+    "runtime-main.js": "/date-formatter-intl-js/static/js/runtime-main.17725d4b.js",
+    "runtime-main.js.map": "/date-formatter-intl-js/static/js/runtime-main.17725d4b.js.map",
+    "static/css/2.74189dbb.chunk.css": "/date-formatter-intl-js/static/css/2.74189dbb.chunk.css",
+    "static/js/2.2263dfd5.chunk.js": "/date-formatter-intl-js/static/js/2.2263dfd5.chunk.js",
+    "static/js/2.2263dfd5.chunk.js.map": "/date-formatter-intl-js/static/js/2.2263dfd5.chunk.js.map",
     "index.html": "/date-formatter-intl-js/index.html",
-    "precache-manifest.360702f53a9cd42e67437a5e503d3382.js": "/date-formatter-intl-js/precache-manifest.360702f53a9cd42e67437a5e503d3382.js",
+    "precache-manifest.6d08d0301c235b0d319cf75f8c8090aa.js": "/date-formatter-intl-js/precache-manifest.6d08d0301c235b0d319cf75f8c8090aa.js",
     "service-worker.js": "/date-formatter-intl-js/service-worker.js",
-    "static/css/2.510409cd.chunk.css.map": "/date-formatter-intl-js/static/css/2.510409cd.chunk.css.map",
-    "static/css/main.ec1d1912.chunk.css.map": "/date-formatter-intl-js/static/css/main.ec1d1912.chunk.css.map"
+    "static/css/2.74189dbb.chunk.css.map": "/date-formatter-intl-js/static/css/2.74189dbb.chunk.css.map",
+    "static/css/main.31d5653a.chunk.css.map": "/date-formatter-intl-js/static/css/main.31d5653a.chunk.css.map",
+    "static/js/2.2263dfd5.chunk.js.LICENSE.txt": "/date-formatter-intl-js/static/js/2.2263dfd5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.aed3af8c.js",
-    "static/css/2.510409cd.chunk.css",
-    "static/js/2.3185bdc2.chunk.js",
-    "static/css/main.ec1d1912.chunk.css",
-    "static/js/main.f76e3149.chunk.js"
+    "static/js/runtime-main.17725d4b.js",
+    "static/css/2.74189dbb.chunk.css",
+    "static/js/2.2263dfd5.chunk.js",
+    "static/css/main.31d5653a.chunk.css",
+    "static/js/main.b5a51fe8.chunk.js"
   ]
 }
